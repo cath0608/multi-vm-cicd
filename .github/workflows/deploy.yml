@@ -1,11 +1,12 @@
 name: Multi-VM CI/CD Pipeline
 
 on:
-  push:             # triggers on all branches and tags
+  push:
     branches:
-      - '**'
+      - main         # triggers Dev deployment
     tags:
-      - '**'
+      - 'staging-*'  # triggers Staging deployment
+      - 'v*'         # triggers Prod deployment
 
 jobs:
   deploy-dev:
